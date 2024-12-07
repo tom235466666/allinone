@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menü</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #8ed9ff, #d4f1ff);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to right, #0069d9, #003a91);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .shop-button {
+            background: url('shop-icon.png') no-repeat center center;
+            background-size: contain;
+            width: 50px;
+            height: 50px;
+        }
+
+        .header .points {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .points div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .header .points div span {
+            font-size: 20px;
+        }
+
+        .header .points div .dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .header .points div.lightblue .dot {
+            background: #00bfff; /* Hellblau */
+        }
+
+        .header .points div.pink .dot {
+            background: #ff69b4; /* Pink */
+        }
+
+        .header .points div.yellow .dot {
+            background: yellow; /* Gelb */
+        }
+
+        .header .points div.green .dot {
+            background: #00ff00; /* Grün */
+        }
+
+        .menu {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to right, #0069d9, #003a91);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="shop-button"></div>
+        <div class="points">
+            <div class="lightblue">
+                <div class="dot"></div>
+                <span>∞</span>
+            </div>
+            <div class="pink">
+                <div class="dot"></div>
+                <span>∞</span>
+            </div>
+            <div class="yellow">
+                <div class="dot"></div>
+                <span>∞</span>
+            </div>
+            <div class="green">
+                <div class="dot"></div>
+                <span>∞</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="shop.html" class="menu-button">
+            <img src="shop.png">
+            Shop
+        </a>
+        <a href="brawler.html" class="menu-button">
+            <img src="brawler.png">
+            Brawler
+        </a>
+        <a href="brawlpass.html" class="menu-button">
+            <img src="brawlpass.webp">
+            Brawlpass
+        </a>
+        <a href="news.html" class="menu-button">
+            <img src="news-icon.png">
+            News
+        </a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>
+        <b>
+        Diese Website basiert auf <em>Brawl Stars</em>, einem Spiel von Supercell. Die Nutzung der Inhalte erfolgt gemäß den Richtlinien der 
+        <a href="https://supercell.com/en/fan-content-policy/" target="_blank" rel="noopener noreferrer">
+            Supercell Fan Content Policy
+        </a>. Diese Website ist nicht offiziell von Supercell genehmigt oder unterstützt.
+        </b>
+    </p>
+        
+
+</body>
+</html>

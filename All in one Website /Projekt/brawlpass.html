@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawl Pass</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004aad, #0073e6);
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #003a91;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            z-index: 5; /* Niedriger als der Button */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button {
+            position: fixed; /* Fixed Position */
+            top: 50px; /* Position des Buttons */
+            left: 10px;
+            padding: 10px;
+            background-color: #ffd700;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 10; /* Button immer über anderen Elementen */
+            transition: background-color 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #e6c200;
+        }
+
+        .brawl-pass-container {
+            margin-top: 70px;
+            width: 100vw;
+            height: calc(100vh - 70px);
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .progress-bar {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .track {
+            height: 10px;
+            background-color: #003a91;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .level {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 150px; /* Breite der Level */
+            margin: 0 20px; /* Abstand zwischen Levels */
+        }
+
+        .level-number-container {
+            width: 50px;
+            height: 50px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            margin: 10px auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .level a img, .level a video {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .level a img:hover, .level a video:hover {
+            transform: scale(1.1); /* Vergrößert das Bild/Video bei Hover */
+        }
+
+        /* Horizontale Scroll-Leiste */
+        .brawl-pass-container::-webkit-scrollbar {
+            height: 12px;
+        }
+
+        .brawl-pass-container::-webkit-scrollbar-thumb {
+            background: #005bb5;
+            border-radius: 6px;
+        }
+
+        .brawl-pass-container::-webkit-scrollbar-track {
+            background: #003a91;
+        }
+    </style>
+</head>
+<body>
+    <!-- Zurück-Button -->
+    <a href="index.html">
+        <button class="back-button">Zurück</button>
+    </a>
+
+    <div class="header">
+        BRAWL PASS
+    </div>
+
+    <div class="brawl-pass-container">
+        <div class="progress-bar">
+            <div class="track"></div>
+            
+            <!-- Levels von 1 bis 50 -->
+            <script>
+                const container = document.querySelector('.progress-bar');
+                for (let i = 1; i <= 50; i++) {
+                    const level = document.createElement('div');
+                    level.className = 'level';
+                    
+                    if (i === 50) {
+                        // Video für Level 50
+                        level.innerHTML = `
+                            <!-- Video über der Zahl -->
+                            <a href="papiercordelius.html" target="_blank">
+                                <video src="papiercordelius.mp4" autoplay loop muted></video>
+                            </a>
+                            <!-- Gelber Punkt mit Zahl -->
+                            <div class="level-number-container">${i}</div>
+                            <!-- Video unter der Zahl -->
+                            <a href="haudegenash.html" target="_blank">
+                                <video src="haudegenash.mp4" autoplay loop muted></video>
+                            </a>
+                        `;
+                    } else {
+                        level.innerHTML = `
+                            <!-- Bild über der Zahl -->
+                            <a href="box.html" target="_blank">
+                                <img src="Megabox.webp" alt="Reward Top ${i}">
+                            </a>
+                            <!-- Gelber Punkt mit Zahl -->
+                            <div class="level-number-container">${i}</div>
+                            <!-- Bild unter der Zahl -->
+                            <a href="selten.html" target="_blank">
+                                <img src="Starrdrop.webp" alt="Reward Bottom ${i}">
+                            </a>
+                        `;
+                    }
+
+                    container.appendChild(level);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
