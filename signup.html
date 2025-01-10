@@ -9,19 +9,20 @@
         
     html{text-align: center;}    
     body{ background-image: url(bg.jpg);background-size: cover;background-position: right;overflow: hidden;}
-    .wrapper{height: 100vh; width: 40%, 600px;align-items: center;justify-content: center;display: flex;flex-direction: column;}
+    .wrapper{height: 100vh; width: 40%, 600px;align-items: center;justify-content: center;display: flex;flex-direction: column;margin-top: ;}
     h1{font-size: 3rem;}
+    .text{font-style: italic;color: azure;background-color: peru;position: fixed;top: 0px;left: 0px;width: 100%;margin-top: 0px;}
     </style>
 </head>
 <body>
     <form id="form"></form>
-    <h1> Signup </h1>
+    <h1 class="text"> Signup </h1>
 
-   <div> <input required type="text" name="first-name"  id="firstname"  placeholder="first-name" ></div>
-   <div> <input  requiredtype="email" name="email " id="email-input" placeholder="Email"> </div>
+   <h3 style="margin-top: 100px;font-size: 5px,height =10px" ><div> <input required type="text" name="first-name"  id="firstname"  placeholder="first-name" ></div>
+   <div> <input  required type="email" name="email " id="email-input" placeholder="Email"> </div>
    <div>  <input   required  type="password name=" name="pasword" id="paword-input" placeholder="Password" > </div>
    <div> <button  type="submit">Signup </button> </div>
-
+   </h3>
     
 </body>
 </html
