@@ -9,6 +9,7 @@
     <style>
         
     html{text-align: center;}    
+
     body{ background-image: url(r.jpg);background-size: cover;background-position: right;overflow: hidden;}
     .wrapper{height: 100vh; width: 40%, 600px;align-items: center;justify-content: center;display: flex;flex-direction: column;}
     h1{font-size: 3rem;}
@@ -25,16 +26,17 @@
    <h3 style="margin-top: 400px;font-size: px,height =19x;" ><div> <input class="r" required type="text" name="First-name"  id="firstname"  placeholder="First-name" ></div>
    <div> <input   required class="r"   type="email" name="email " id="email-input" placeholder="Email"> </div>
    <div>  <input   required class="r" type="password name=" name="pasword" id="paword-input" placeholder="Password" > </div>
-   <div> <button class="r" type="submit" onclick="location.href='index.html'">Register
-
+   <div> <button   class="r" type="submit"  onclick="location.href='index.html';saveName()">Register
+    
    </button>
+   
 
-
+   <script> function saveName() { let name = document.getElementById('firstname').value; localStorage.setItem('userName', name);  } </script>
     
     
 </div>
 
    </h3>
-    
+  
 </body>
 </html 

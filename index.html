@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All in one Website</title>
-    <link rel="icon" type="image/x-icon" href="ui.png"  ; href="signup.html">
+    <link rel="icon" type="image/x-icon" href="i.png"  ; href="signup.html">
 
     <style>
-        
-    button{background-color: rgb(255, 255, 245);font-family: Monaco;font-style: oblique;}
+   
+    button{background-color: rgb(255, 255, 245);font-family: Monaco;font-style: bold;}
+    .t{color: white;text-align: center;font-family: Monaco;font-style: oblique;}
     .ret{position: fixed;top: 100px;left: 50px;}
-    body{background-attachment: fixed;background-image: url('t.jpg');background-size:cover;}
+    body{background-attachment: fixed;background-image: url('r.jpg');background-size:cover;overflow: hidden;}
     .r{background-attachment: fixed;background-size: cover;}
     .nav a:hover{background-color: rgb(60, 60, 60);color:black ;}
     .nav{position: fixed;top: 0%;width: 100%;background-color: rgb(10, 10, 10);font-size: 50px;padding: 10px;text-decoration: none;color: wheat;}
-    .te{height: 60px;width: 60px;}
+    .te{height: 90px;width: 90px;border-radius: 10px;position: absolute;top: 10px;left: 20px;}
     .ze{height: 90px;width: 90px;position: absolute;top: 40vh;left: 45vw;border-radius: 10px;}
     a:hover{filter:blur(2px);cursor: pointer;}
     
@@ -25,12 +26,16 @@
     
 </head>
 
-<body  >
-
-<img  class="te" src="ui.png "  alt="Sorry Image is gone"> 
+<body  onload="getName()" >
+    <div>
+        <script> function getName() { let name = localStorage.getItem('userName'); if (name) { document.getElementById('userName').textContent = name; } else { document.getElementById('userName').textContent = 'Guest'; } } getName();
+         </script>
+          <h1 class="t"> Wilkommen <span id="userName"></span></h1>
+    </div>
+  
+<img  class="te" src="i.png "  alt="Sorry Image is gone"> 
 
    
-    
 
  <a href="https://boxbrawl.netlify.app"    >
     
