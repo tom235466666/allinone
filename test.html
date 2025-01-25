@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All in one Website</title>
+    <link   rel="stylesheet" href="style.css"; href="index.html"; rel="icon" type="image/x-icon" href="i.png">
+
+    <style>
+
+        a:hover{text-decoration: none;}
+        html {
+            text-align: center;
+        }
+
+        body {
+            background-image: url(r.jpg);
+            background-size: cover;
+            background-position: right;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 40%;
+            max-width: 600px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .text {
+            font-family: Monaco;
+            color: azure;
+            position: fixed;
+            top: 0px;
+            left: 40vw;
+            margin-top: 200px;
+            font-style: oblique;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .r {
+            font-size: 20px;
+            border-radius: 40px;
+            margin: 5px;
+            background-color: rgb(104, 111, 135);
+            padding: 8px;
+            text-rendering: auto;
+            font-family: Monaco;
+            color: white;
+            font-weight: bold;
+            
+        
+        }
+
+        ::placeholder {
+            color: white;
+        }
+
+        .t {
+            margin-top: 40px;
+        }
+
+        /* Custom styling for the form and inputs */
+        form {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 40vh;
+            left: 42vw;
+        }
+
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            justify-content: center;
+
+            #form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+
+        }
+        .r{font-size: 20px;border-radius: 40px;margin: 5px;background-color: rgb(104, 111, 135);padding: 8px;text-rendering: auto;font-family: Monaco;color: white;font-style: bold;}
+    </style>
+</head>
+<body>
+    <h1 class="text"> Register Form </h1>
+
+    <div class="wrapper">
+        <!-- Formular zum Registrieren -->
+       <form id="form">
+            <input class="r" required type="text" name="firstname" id="firstname" placeholder="First Name">
+            <input class="r" required type="email" name="email" id="email-input" placeholder="Email">
+            <input class="r" required type="password" name="password" id="password-input" placeholder="Password">
+            <button  class="r"  type="submit">Register</button>
+        </form>
+    </div>
+         <a    style="color: white;position: absolute;top: 65vh;left: 60vw;" href="https://leck45.netlify.app">Weiter
+
+                </a>
+    <div> Bitte erst Weiter drücken wenn fertig mit der aufüllung des Forms</div>
+
+
+    <script>
+        
+     
+    
+        // Funktion zum Absenden der Formulardaten an den Server
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Verhindert das Neuladen der Seite
+
+            const firstName = document.getElementById('firstname').value;
+            const email = document.getElementById('email-input').value;
+            const password = document.getElementById('password-input').value;
+
+            // Formulardaten als JSON
+            const userData = {
+                name: firstName,
+                email: email,
+                passwort: password,
+            };
+
+            // Daten per Fetch an den Express-Server senden
+            fetch('http://localhost:3000/benutzer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Erfolgreich erstellt:', data);
+                alert('Benutzer erfolgreich registriert! Jetzt musst du dich noch anmelden.');
+                localStorage.setItem('userName', firstName); // Benutzername in LocalStorage speichern
+            })
+            .catch(error => {
+                console.error('Fehler beim Erstellen des Benutzers:', error);
+                alert('Etwas ist schiefgelaufen!');
+            });
+        });
+
+
+
+        window.onbeforeunload = function (event) {
+    event.preventDefault();
+    event.returnValue = 'Are you sure you want to leave?';
+};
+
+    </script>
+</body>
+</html>

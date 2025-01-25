@@ -30,10 +30,43 @@
     
    </button>
    
+s
+   <script>
+    // Funktion zum Absenden der Formulardaten an den Server
+    document.getElementById('form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Verhindert das Neuladen der Seite
 
-   <script> function saveName() { let name = document.getElementById('firstname').value; localStorage.setItem('userName', name);  } </script>
-    
-    
+        const firstName = document.getElementById('firstname').value;
+        const email = document.getElementById('email-input').value;
+        const password = document.getElementById('password-input').value;
+
+        // Formulardaten als JSON
+        const userData = {
+            name: firstName,
+            email: email,
+            passwort: password,
+        };
+
+        // Daten per Fetch an den Express-Server senden
+        fetch('http://localhost:3000/benutzer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Erfolgreich erstellt:', data);
+            alert('Benutzer erfolgreich registriert! Jetzt musst du dich noch anmelden.');
+            localStorage.setItem('userName', firstName); // Benutzername in LocalStorage speichern
+        })
+        .catch(error => {
+            console.error('Fehler beim Erstellen des Benutzers:', error);
+            alert('Etwas ist schiefgelaufen!');
+        });
+    });
+</script>
 </div>
 
    </h3>
